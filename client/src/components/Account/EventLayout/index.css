@@ -1,0 +1,60 @@
+.event__title {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.focus-boxes {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 15px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.card__title {
+    position: relative;
+    display: inline-block;
+    font-family: var(--heading);
+    color: var(--dark-teal);
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card__title::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--light-teal);
+}
+
+.contact-card p {
+    font-size: 18px;
+}
+
+.number {
+    font-size: 72px;
+}
+
+.back-btn {
+    background-color: var(--dark-teal);
+    border: 0;
+    min-width: 200px;
+    padding: 12px 20px;
+    color: #ffffff;
+    font-family: var(--heading);
+    font-size: 20px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}

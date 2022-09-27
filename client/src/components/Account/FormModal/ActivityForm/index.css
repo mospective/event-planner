@@ -1,0 +1,128 @@
+.form-event__activity-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-event__acitvity-details {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.form-event__activity-name {
+    display: flex;
+    flex-direction: column;
+    width: 48%
+}
+
+.form-event__activity-location {
+    display: flex;
+    flex-direction: column;
+    width: 48%
+}
+
+.form-event__activity-description {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+.form-event__activity-image {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+.form-event__activity-dates {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-event__label {
+    margin-bottom: 10px;
+}
+
+.form-event__activity-name input, .form-event__activity-location input, .form-event__activity-description input, .form-event__activity-image input, .form-event__activity-description textarea, .date-option input, .form-event__activity-contact input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0;
+    text-align: left;
+    box-shadow: 0 10px 51px 0 rgba(0,0,0,.08);
+    margin-bottom: 20px;
+}
+
+.date-option__cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    background-color: var(--dark-teal);
+    color: #ffffff;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dates-list {
+    display: flex;
+    flex-flow: wrap;
+    list-style-type: none;
+    gap: 10px;
+    margin:  0 0 10px;
+    padding: 0;
+}
+
+.dates-date {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.dates-date span button {
+    border: 0;
+    color: #ffffff;
+    background-color: var(--dark-teal);
+    border-radius: 50%;
+    width: 26px;
+    cursor: pointer;
+}
+
+.add-activity {
+    background-color: var(--dark-teal);
+    border: 0;
+    padding: 10px 25px;
+    box-sizing: border-box;
+    border-radius: 40px;
+    color: #ffffff;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.add-activity:hover {
+    background-color: var(--light-teal);
+    color: #030f04;
+}
+
+.show {
+    display: block;
+}
+
+.form-event__acitvity-details.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .add-activity {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

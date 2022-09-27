@@ -1,0 +1,23 @@
+.heading-block {
+    padding: 40px 0;
+}
+
+.heading-block h2 {
+    font-size: 45px;
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.form-navigation button {
+    min-width: 80px;
+    border: 0;
+    background-color: var(--dark-teal);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+}

@@ -1,0 +1,64 @@
+.client-card__grp{
+    display: flex;
+    flex-flow: wrap;
+    gap: 20px;
+    margin-bottom: 0;
+}
+
+.client-card {
+    /* flex: 1 1 0; */
+    height: 380px;
+    width: 100%;
+    /* width: calc(33.33% - 1%); */
+    /* width: 32.4%; */
+    max-width: 345px;
+    background-color: #ffffff;
+}
+
+.client-card__img {
+    height: 265px;
+}
+
+.client-card__img img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.client-card__text {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.client-card__title {
+    font-size: 22px;
+    font-family: var(--heading);
+}
+
+.client-card__cta button {
+    border: 0;
+    background-color: var(--dark-teal);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.message p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+@media(max-width: 768px) {
+    .client-card {
+        width: calc(50% - 10px);
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 768px) {
+    .client-card {
+        width: 100%;
+    }
+}
