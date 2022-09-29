@@ -17,6 +17,18 @@ const Response = database.define("response", {
     },
     activityDate: {
         type: DataTypes.STRING
+    },
+    activity: {
+        type: DataTypes.STRING
+    },
+    activityId: {
+        type: DataTypes.INTEGER
+    },
+    event: {
+        type: DataTypes.STRING
+    },
+    eventId: {
+        type: DataTypes.INTEGER
     }
 }, {
     timestamps: false

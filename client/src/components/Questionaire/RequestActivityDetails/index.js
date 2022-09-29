@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import RadioButton from "../../helpers/RadioButton";
 import "./index.css";
 
-const RequestActivityDetails = ({ selectedObject, setSelectedObject }) => {
+const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDate, setClientDateId }) => {
 
     console.log("rad", selectedObject);
     const { image } = selectedObject;
@@ -14,15 +14,21 @@ const RequestActivityDetails = ({ selectedObject, setSelectedObject }) => {
 
     const changeHandler = (e) => {
         // e.preventDefault();
-        // console.log(e.target.value)
+        // console.log(e.target.value);
         // setValue(!value)
-        setSelectedObject({...selectedObject, date: e.target.value})
+        setSelectedObject({...selectedObject, date: e.target.value});
+        // console.log(selectedObject);
+        setClientDate(e.target.value);
         // setSelectedObject((prev) => {
         //     return {
         //         prev,
         //         date: e.target.value
         //     }
         // });
+
+        // based on date value return an array item with key
+        // copy the dateId + vote + 1
+
     };
 
 

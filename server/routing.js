@@ -2,6 +2,7 @@ const eventController = require("./Controllers/eventController.js");
 const activityController = require("./Controllers/activityController.js");
 const contactController = require("./Controllers/contactController.js");
 const dateController = require("./Controllers/dateController.js");
+const responseController = require("./Controllers/responseController.js");
 
 const routing = (app) => {
     app.get("/event", eventController.getAllEvents);
@@ -21,6 +22,9 @@ const routing = (app) => {
 
     app.get("/dates", dateController.getAllDates);
     app.post("/dates", dateController.createDate);
+
+    app.post("/response", responseController.createResponse);
+    app.get("/response", responseController.getAllResponses);
     
 };
 

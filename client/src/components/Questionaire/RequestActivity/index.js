@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./index.css";
 
-const RequestActivity = ({ activities, selectedObject, setSelectedObject }) => {
+const RequestActivity = ({ activities, setSelectedObject, setClientActivity, setClientActivityId }) => {
     
     const btnSelectHandler = (e) => {
         e.preventDefault();
@@ -17,6 +17,8 @@ const RequestActivity = ({ activities, selectedObject, setSelectedObject }) => {
 
         // console.log(result);
         setSelectedObject(result);
+        setClientActivity(result.activity);
+        setClientActivityId(result.id);
     };
 
     // console.log("ra", selectedObject);

@@ -8,6 +8,10 @@ import "./index.css";
 const Questionaire = ({ data }) => {
     const [page, setPage] = useState(1);
     const [selectedObject, setSelectedObject] = useState();
+    const [clientActivity, setClientActivity] = useState("");
+    const [clientActivityId, setClientActivityId] = useState("");
+    const [clientDate, setClientDate] = useState("");
+    const [clientDateId, setClientDateId] = useState("");
     const [clientName, setClientName] = useState("");
     const [clientEmail, setClientEmail] = useState("");
 
@@ -25,6 +29,11 @@ const Questionaire = ({ data }) => {
     const submissionHandler = (e) => {
         e.preventDefault();
         const client = {
+            event: data.eventName,
+            eventId: data.id,
+            activity: clientActivity,
+            activityId: clientActivityId,
+            activityDate: clientDate,
             name: clientName,
             email: clientEmail
         };
@@ -32,13 +41,24 @@ const Questionaire = ({ data }) => {
         console.log(client);
         console.log("submission button");
 
+        fetch(`/response`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(client)
+        })
+        .then(res => res.json)
+        .catch(err => console.log(err));
+
         setClientName("");
         setClientEmail("");
     };
 
     const activities = data.activities;
 
-    // console.log(activities);
+    // console.log(data);
     // console.log("activity", selectedObject);
 
     return (
@@ -48,9 +68,9 @@ const Questionaire = ({ data }) => {
             </div>
             <div className="master-form">
                 <form onSubmit={submissionHandler}>
-                    {page === 1 && (<RequestActivity activities={activities} selectedObject={selectedObject} setSelectedObject={setSelectedObject} />)}
+                    {page === 1 && (<RequestActivity activities={activities} selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientActivity={setClientActivity} setClientActivityId={setClientActivityId} />)}
                     {/* The below "page" will need to be fully dynamic */}
-                    {page === 2 && (<RequestActivityDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} />)}
+                    {page === 2 && (<RequestActivityDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientDate={setClientDate} setClientDateId={setClientDateId} />)}
                     {page === 3 && (<RequestClientDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} clientName={clientName} setClientName={setClientName} clientEmail={clientEmail} setClientEmail={setClientEmail} />)}
                     <div className="form-navigation">
                         {page > 1 && (<button onClick={backHandler} >Back</button>)}
