@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
 
-const EventCard = ({ activity, description, location, activityImage, chosenDate, contact }) => {
-    // const [count, setCount] = useState(0);
-    // let duration = 1;
-    // let number = votes;
+const EventCard = ({ activity, description, location, activityImage, chosenDate, contact, votes }) => {
+    const [count, setCount] = useState(0);
+    let duration = 1;
+    let number = parseInt(votes);
 
-    // useEffect(() => {
-    //     let startCount = 0;
-    //     let endCount = number;
+    useEffect(() => {
+        let startCount = 0;
+        let endCount = number;
 
-    //     if (startCount === endCount) return;
+        if (startCount === endCount) return;
 
-    //     let totalMilSecDur = parseInt(duration);
-    //     let incrementTime = (totalMilSecDur / endCount) * 1000;
+        let totalMilSecDur = parseInt(duration);
+        let incrementTime = (totalMilSecDur / endCount) * 1000;
 
-    //     let timer = setInterval(() => {
-    //         startCount += 1;
-    //         setCount(startCount)
-    //         if (startCount === endCount) clearInterval(timer)       
-    //       }, incrementTime);
+        let timer = setInterval(() => {
+            startCount += 1;
+            setCount(startCount)
+            if (startCount === endCount) clearInterval(timer)       
+          }, incrementTime);
 
 
-    // },[number, duration]);
+    },[number, duration]);
 
     const ISODateConverter = (isoDate) => {
         let date = new Date(isoDate);
@@ -57,7 +57,7 @@ const EventCard = ({ activity, description, location, activityImage, chosenDate,
                 <div className="event-card__content results">
                     <div className="results__numbers">
                         <div className="votes">
-                            {/* {count} */}
+                            {count}
                         </div>
                         {/* <p>Total number of voters <span className="bold">{numberOfVoters}</span></p> */}
                     </div>

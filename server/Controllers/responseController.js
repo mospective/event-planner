@@ -13,12 +13,20 @@ const createResponse = async (req, res) => {
     try {
         // Adding one vote to the selected Activity record
         const activityItem = await Activity.findOne({ where: { id: response.activityId } });
+        console.log("activityItem");
+        console.log(activityItem);
         let counter = parseInt(activityItem.votes);
         activityItem.votes = counter + 1;
         await activityItem.save();
 
         // Add one vote on specific date for the chosen activity
-        // const activityDateItem = await Date.findOne({ where: { id: response.dateId} });
+        const activityDateItem = await Date.findOne({ where: { id: response.activityDateId} });
+        console.log("----------------------------");
+        console.log(activityDateItem);
+        console.log("----------------------------");
+        let dateCounter = parseInt(activityDateItem.votes);
+        activityDateItem.votes = dateCounter + 1;
+        await activityDateItem.save();
 
         // Actual response to response
         const responseItem = await Response.create(req.body);

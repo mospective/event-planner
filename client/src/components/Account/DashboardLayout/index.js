@@ -1,187 +1,187 @@
 import React, { Fragment, useState, useEffect } from "react";
 import FormModal from "../FormModal";
 import ActivityCard from "../../ActivityCard";
-import Restaurant from "../../../assets/table.jpg";
-import Paintball from "../../../assets/paintball.jpg";
+// import Restaurant from "../../../assets/table.jpg";
+// import Paintball from "../../../assets/paintball.jpg";
 import "./index.css";
 
 
 // Example data
-const item = [
-    {
-        id: 1,
-        occasion: "Summer day out 2022",
-        activity: [
-            {
-                activityId: 1,
-                activity: "Paintball ",
-                location: "London",
-                totalVotes: 8,
-                image: `${Paintball}`,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                contact: {
-                    name: "Jane Smith",
-                    position: "Event organiser",
-                    email: "j.doe@pb.com",
-                    phone: "074589612554"
-                },
-                dates: [
-                    {
-                        dateId: 1,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 24
-                    },
-                    {
-                        dateId: 2,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 15
-                    },
-                    {
-                        dateId: 3,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 2
-                    }
-                ]
-            },
-            {
-                activityId: 2,
-                activity: "Go karting ",
-                location: "London",
-                totalVotes: 25,
-                image: `${Paintball}`,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                contact: {
-                    name: "Jane Smith",
-                    position: "Event organiser",
-                    email: "j.doe@pb.com",
-                    phone: "074589612554"
-                },
-                dates: [
-                    {
-                        dateId: 1,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 24
-                    },
-                    {
-                        dateId: 2,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 15
-                    },
-                    {
-                        dateId: 3,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 2
-                    }
-                ]
-            },
+// const item = [
+//     {
+//         id: 1,
+//         occasion: "Summer day out 2022",
+//         activity: [
+//             {
+//                 activityId: 1,
+//                 activity: "Paintball ",
+//                 location: "London",
+//                 totalVotes: 8,
+//                 image: `${Paintball}`,
+//                 description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+//                 contact: {
+//                     name: "Jane Smith",
+//                     position: "Event organiser",
+//                     email: "j.doe@pb.com",
+//                     phone: "074589612554"
+//                 },
+//                 dates: [
+//                     {
+//                         dateId: 1,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 24
+//                     },
+//                     {
+//                         dateId: 2,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 15
+//                     },
+//                     {
+//                         dateId: 3,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 2
+//                     }
+//                 ]
+//             },
+//             {
+//                 activityId: 2,
+//                 activity: "Go karting ",
+//                 location: "London",
+//                 totalVotes: 25,
+//                 image: `${Paintball}`,
+//                 description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+//                 contact: {
+//                     name: "Jane Smith",
+//                     position: "Event organiser",
+//                     email: "j.doe@pb.com",
+//                     phone: "074589612554"
+//                 },
+//                 dates: [
+//                     {
+//                         dateId: 1,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 24
+//                     },
+//                     {
+//                         dateId: 2,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 15
+//                     },
+//                     {
+//                         dateId: 3,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 2
+//                     }
+//                 ]
+//             },
 
-        ],
-        eventImage: `${Paintball}`,
-        voters: 60
-    },
-    {
-        id: 2,
-        occasion: "Winter dinner",
-        activity: [
-            {
-                activityId: 1,
-                activity: "Honest ",
-                location: "London",
-                totalVotes: 12,
-                image: `${Restaurant}`,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                contact: {
-                    name: "Jane Doe",
-                    position: "Event organiser",
-                    email: "j.doe@pb.com",
-                    phone: "074589612554"
-                },
-                dates: [
-                    {
-                        dateId: 1,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 5
-                    },
-                    {
-                        dateId: 2,
-                        date: "2022-09-03T16:52:22.243Z",
-                        votes: 15
-                    },
-                    {
-                        dateId: 3,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 2
-                    }
-                ]
-            },
-            {
-                activityId: 2,
-                activity: "Nandos",
-                location: "London",
-                totalVotes: 27,
-                image: `${Restaurant}`,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                contact: {
-                    name: "Jane Doe",
-                    position: "Event organiser",
-                    email: "j.doe@pb.com",
-                    phone: "074589612554"
-                },
-                dates: [
-                    {
-                        dateId: 1,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 6
-                    },
-                    {
-                        dateId: 2,
-                        date: "2022-10-03T16:52:22.243Z",
-                        votes: 15
-                    },
-                    {
-                        dateId: 3,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 4
-                    }
-                ]
-            },
-            {
-                activityId: 3,
-                activity: "Pasta Evangelist",
-                location: "London",
-                totalVotes: 24,
-                image: `${Restaurant}`,
-                description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-                contact: {
-                    name: "Jane Doe",
-                    position: "Event organiser",
-                    email: "j.doe@pb.com",
-                    phone: "074589612554"
-                },
-                dates: [
-                    {
-                        dateId: 1,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 5
-                    },
-                    {
-                        dateId: 2,
-                        date: "2022-10-03T16:52:22.243Z",
-                        votes: 16
-                    },
-                    {
-                        dateId: 3,
-                        date: "2022-08-03T16:52:22.243Z",
-                        votes: 2
-                    }
-                ]
-            },
+//         ],
+//         eventImage: `${Paintball}`,
+//         voters: 60
+//     },
+//     {
+//         id: 2,
+//         occasion: "Winter dinner",
+//         activity: [
+//             {
+//                 activityId: 1,
+//                 activity: "Honest ",
+//                 location: "London",
+//                 totalVotes: 12,
+//                 image: `${Restaurant}`,
+//                 description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+//                 contact: {
+//                     name: "Jane Doe",
+//                     position: "Event organiser",
+//                     email: "j.doe@pb.com",
+//                     phone: "074589612554"
+//                 },
+//                 dates: [
+//                     {
+//                         dateId: 1,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 5
+//                     },
+//                     {
+//                         dateId: 2,
+//                         date: "2022-09-03T16:52:22.243Z",
+//                         votes: 15
+//                     },
+//                     {
+//                         dateId: 3,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 2
+//                     }
+//                 ]
+//             },
+//             {
+//                 activityId: 2,
+//                 activity: "Nandos",
+//                 location: "London",
+//                 totalVotes: 27,
+//                 image: `${Restaurant}`,
+//                 description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+//                 contact: {
+//                     name: "Jane Doe",
+//                     position: "Event organiser",
+//                     email: "j.doe@pb.com",
+//                     phone: "074589612554"
+//                 },
+//                 dates: [
+//                     {
+//                         dateId: 1,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 6
+//                     },
+//                     {
+//                         dateId: 2,
+//                         date: "2022-10-03T16:52:22.243Z",
+//                         votes: 15
+//                     },
+//                     {
+//                         dateId: 3,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 4
+//                     }
+//                 ]
+//             },
+//             {
+//                 activityId: 3,
+//                 activity: "Pasta Evangelist",
+//                 location: "London",
+//                 totalVotes: 24,
+//                 image: `${Restaurant}`,
+//                 description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+//                 contact: {
+//                     name: "Jane Doe",
+//                     position: "Event organiser",
+//                     email: "j.doe@pb.com",
+//                     phone: "074589612554"
+//                 },
+//                 dates: [
+//                     {
+//                         dateId: 1,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 5
+//                     },
+//                     {
+//                         dateId: 2,
+//                         date: "2022-10-03T16:52:22.243Z",
+//                         votes: 16
+//                     },
+//                     {
+//                         dateId: 3,
+//                         date: "2022-08-03T16:52:22.243Z",
+//                         votes: 2
+//                     }
+//                 ]
+//             },
 
-        ],
-        eventImage: `${Restaurant}`,
-        voters: 25
-    },
-];
+//         ],
+//         eventImage: `${Restaurant}`,
+//         voters: 25
+//     },
+// ];
 
 const DashboardLayout = () => {
 

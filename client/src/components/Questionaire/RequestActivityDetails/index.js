@@ -19,9 +19,10 @@ const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDa
         console.log(e.currentTarget.dataset.id);
 
         // setValue(!value)
-        setSelectedObject({...selectedObject, date: e.target.value});
+        setSelectedObject({...selectedObject, date: e.target.value });
         // console.log(selectedObject);
         setClientDate(e.target.value);
+        setClientDateId(e.currentTarget.dataset.id)
         // setSelectedObject((prev) => {
         //     return {
         //         prev,
