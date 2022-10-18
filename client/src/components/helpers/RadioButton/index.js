@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { ISODateConverter } from "../ISODateConverter";
 
-const RadioButton = ({ label, onChange }) => {
+const RadioButton = ({ label, onChange, dataId }) => {
     const [value, setValue] = useState(false);
 
     const test = () => {
@@ -10,7 +10,7 @@ const RadioButton = ({ label, onChange }) => {
 
     return (
         <Fragment>
-            <input type="radio" value={label} name="choice" onChange={onChange} />
+            <input type="radio" value={label} data-id={dataId} name="choice" onChange={onChange} />
             <label htmlFor="choice">{ ISODateConverter(label) }</label>
         </Fragment>
     )

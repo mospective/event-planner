@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import RadioButton from "../../helpers/RadioButton";
 import "./index.css";
 
 const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDate, setClientDateId }) => {
-
+    const dateId = useRef();
     console.log("rad", selectedObject);
     const { image } = selectedObject;
     const { description } = selectedObject;
@@ -14,7 +14,10 @@ const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDa
 
     const changeHandler = (e) => {
         // e.preventDefault();
-        // console.log(e.target.value);
+        console.log("date" + e.target.value);
+        console.log("id");
+        console.log(e.currentTarget.dataset.id);
+
         // setValue(!value)
         setSelectedObject({...selectedObject, date: e.target.value});
         // console.log(selectedObject);
@@ -49,10 +52,11 @@ const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDa
                     <ul className="activity-dates__list">
 
                         {dates.map(date => {
+                            console.log(date)
                             return (
                                 <li className="activity-dates__listitem" key={date.id}>
                                     <div className="radio-btn">
-                                        <RadioButton label={date.date} onChange={changeHandler} />
+                                        <RadioButton label={date.date} dataId={date.id} onChange={changeHandler} />
                                     </div>
                                 </li>
                             );

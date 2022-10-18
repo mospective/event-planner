@@ -34,7 +34,8 @@ const updateActivity = async (req, res) => {
     activityItem.description = req.body.description;
     activityItem.image = req.body.image;
     activityItem.dates = req.body.dates;
-    activityItem.evenId = req.body.eventId;
+    activityItem.eventId = req.body.eventId;
+    activityItem.votes = req.body.votes;
 
     await activityItem.save();
     res.send({

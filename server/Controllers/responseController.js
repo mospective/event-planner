@@ -1,8 +1,26 @@
 const Response = require("../models/Response");
+const Activity = require("../models/Activity");
+const Date = require("..//models/Date");
 
 const createResponse = async (req, res) => {
 
+    let response = req.body;
+    console.log("================================");
+    console.log(response);
+    console.log("================================");
+
+
     try {
+        // Adding one vote to the selected Activity record
+        const activityItem = await Activity.findOne({ where: { id: response.activityId } });
+        let counter = parseInt(activityItem.votes);
+        activityItem.votes = counter + 1;
+        await activityItem.save();
+
+        // Add one vote on specific date for the chosen activity
+        // const activityDateItem = await Date.findOne({ where: { id: response.dateId} });
+
+        // Actual response to response
         const responseItem = await Response.create(req.body);
         res.send({
             message: "A new response has been created,",
