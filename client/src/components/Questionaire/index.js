@@ -34,7 +34,7 @@ const Questionaire = ({ data }) => {
             activity: clientActivity,
             activityId: clientActivityId,
             activityDate: clientDate,
-            activityDateId: clientActivityId,
+            activityDateId: clientDateId,
             name: clientName,
             email: clientEmail
         };

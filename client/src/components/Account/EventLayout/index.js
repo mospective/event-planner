@@ -11,7 +11,7 @@ const EventLayout = () => {
     let activities = location.state.activity;
 
     console.log("location votes");
-    console.log(location.state);
+    console.log(location.state.activity);
 
     const backHandler = () => {
         navigate(-1);
@@ -27,8 +27,8 @@ const EventLayout = () => {
 
                 {activities.map(activity => {
                     console.log("activity 1")
-                    console.log(activity.dates.votes);
-                    // let maxvotes = activity.dates.reduce((max, act) => max.votes > act.votes ? max : act);
+                    console.log(activity.dates);
+                    let maxvotes = activity.dates.reduce((max, act) => max.votes > act.votes ? max : act);
                     return <EventCard
                         key={activity.activityId}
                         activity={activity.activity}
@@ -36,8 +36,8 @@ const EventLayout = () => {
                         location={activity.location}
                         activityImage={activity.image}
                         votes={activity.votes}
-                        // chosenDate={maxvotes.date}
-                        chosenDate={activity.dates.votes}
+                        chosenDate={maxvotes.date}
+                        // chosenDate={activity.dates.votes}
                         contact={activity.contact}
                         // numberOfVoters={numberOfVoters}
                     />
