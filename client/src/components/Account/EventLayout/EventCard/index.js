@@ -59,7 +59,6 @@ const EventCard = ({ activity, description, location, activityImage, chosenDate,
                         <div className="votes">
                             {count}
                         </div>
-                        {/* <p>Total number of voters <span className="bold">{numberOfVoters}</span></p> */}
                     </div>
                     <div className="dates">
                         <p>Chosen date: {ISODateConverter(chosenDate)}</p>

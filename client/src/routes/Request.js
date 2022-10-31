@@ -1,14 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
-// import { useParams } from 'react-router-dom';
 import Header from "../components/Header";
 import Main from "../components/Layout/Main";
 import EventsList from "../components/EventsList";
-// import Questionaire from "../components/Questionaire";
 
 export default function Request () {
     const [reqData, setReqData] = useState([]);
-
-    // let { eventId } = useParams();
 
    useEffect(() => {
     fetch(`/event`, {
@@ -23,8 +19,6 @@ export default function Request () {
     .catch(err => console.log("error: ", err));
 
    },[]);
-
-//    console.log(reqData);
 
     return (
         <Fragment>

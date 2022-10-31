@@ -3,8 +3,6 @@ import "./index.css";
 
 const RequestClientDetails = ({ selectedObject, setSelectedObject, clientName, setClientName, clientEmail, setClientEmail }) => {
 
-    console.log("rcd", selectedObject);
-
     const clientNameHandler = (e) => {
         setClientName(e.target.value);
     };

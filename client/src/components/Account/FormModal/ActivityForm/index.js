@@ -37,10 +37,6 @@ const ActivityForm = ({ activityArray, setActivityArray }) => {
         setImage(e.target.value);
     };
 
-    // const activityDateHandler = () => {
-    //     setDateValue({date: date?._d.toISOString(), votes: "0"})
-    // };
-
     const addDateHandler = (e) => {
         e.preventDefault();
         if (dateValue === "" || dateValue === null) return null;
@@ -74,7 +70,6 @@ const ActivityForm = ({ activityArray, setActivityArray }) => {
         const id = e.target.dataset.id;
         const updatedDates = [...dateArray];
         updatedDates.splice(id, 1);
-        // console.log(updatedDates);
         setDateArray(updatedDates);
 
     };
@@ -101,8 +96,6 @@ const ActivityForm = ({ activityArray, setActivityArray }) => {
         };
 
         setActivityArray(act => [...act, activity]);
-
-        // console.log(activity);
 
         setActivityName("");
         setLocation("");
@@ -140,7 +133,6 @@ const ActivityForm = ({ activityArray, setActivityArray }) => {
                 <div className="form-event__activity-dates">
                     <p className="form-event__label">Add available dates:</p>
                     <div className="date-option">
-                        {/* <input type="date" value={dateValue.name} onChange={activityDateHandler} /> */}
                         
                         <SingleDatePicker
                             numberOfMonths={1}

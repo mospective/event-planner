@@ -35,9 +35,6 @@ const FormModal = ({ modal, closeModalHandler, activityArray, setActivityArray, 
                 activities: activityArray
         };
 
-        // let test = JSON.stringify(event.activity);
-        // console.log(test);
-
         fetch(`/event`, {
             method: "POST",
             headers: {
@@ -48,19 +45,6 @@ const FormModal = ({ modal, closeModalHandler, activityArray, setActivityArray, 
         })
         .then(res => res.json)
         .catch(err => console.log(err));
-
-        // fetch(`/activity`, {
-        //     method: "POST",
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(event.activity)
-        // })
-        // .then(res => res.json)
-        // .catch(err => console.log(err));
-
-        // console.log(event);
 
         setEventName("");
         setActivityArray([]);
@@ -73,8 +57,6 @@ const FormModal = ({ modal, closeModalHandler, activityArray, setActivityArray, 
         <Modal
             isOpen={modal}
             closeTimeoutMS={200}
-            // onAfterOpen={afterOpenModal}
-            // onRequestClose={closeModalHandler}
             overlayClassName="Overlay"
             className="Modal"
             contentLabel="Example Modal">

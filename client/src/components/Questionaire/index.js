@@ -7,6 +7,7 @@ import "./index.css";
 
 const Questionaire = ({ data }) => {
     const [page, setPage] = useState(1);
+    const [selected, setSelected] = useState("");
     const [selectedObject, setSelectedObject] = useState();
     const [clientActivity, setClientActivity] = useState("");
     const [clientActivityId, setClientActivityId] = useState("");
@@ -22,10 +23,13 @@ const Questionaire = ({ data }) => {
 
     const nextHandler = (e) => {
         e.preventDefault();
+        if (selected === "") {
+            return;
+        }
+        
         setPage(page + 1);
     }
 
-    // console.log(data)
     const submissionHandler = (e) => {
         e.preventDefault();
         const client = {
@@ -69,21 +73,19 @@ const Questionaire = ({ data }) => {
                 <div className="heading-block"><h2>{data.eventName} </h2></div>
             </div>
             <div className="master-form">
+
                 <form onSubmit={submissionHandler}>
-                    {page === 1 && (<RequestActivity activities={activities} selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientActivity={setClientActivity} setClientActivityId={setClientActivityId} />)}
-                    {/* The below "page" will need to be fully dynamic */}
+                    {page === 1 && (<RequestActivity activities={activities} selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientActivity={setClientActivity} setClientActivityId={setClientActivityId} selected={selected} setSelected={setSelected}/>)}
                     {page === 2 && (<RequestActivityDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientDate={setClientDate} setClientDateId={setClientDateId} />)}
                     {page === 3 && (<RequestClientDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} clientName={clientName} setClientName={setClientName} clientEmail={clientEmail} setClientEmail={setClientEmail} />)}
                     {page === 4 && (<ThankyouPage />)}
-                    
                     <div className="form-navigation">
-                        {page > 1 && (<button onClick={backHandler} >Back</button>)}
-                        {/* <p>page: {page}</p> */}
+                        {(page > 1 && page < 3) && (<button onClick={backHandler} >Back</button>)}
                         {page < 3 && (<button onClick={nextHandler}>Next</button>)}
                         {page === 3 && (<button type="submit">Submit</button>)}
                     </div>
-
                 </form>
+                
             </div>
         </Fragment>
     )

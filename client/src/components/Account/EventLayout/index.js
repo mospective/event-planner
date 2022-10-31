@@ -7,7 +7,6 @@ const EventLayout = () => {
     const location = useLocation();
     let navigate = useNavigate();
     let occasion = location.state.occasion;
-    // let numberOfVoters = location.state.numberOfVoters;
     let activities = location.state.activity;
 
     console.log("location votes");
@@ -37,9 +36,7 @@ const EventLayout = () => {
                         activityImage={activity.image}
                         votes={activity.votes}
                         chosenDate={maxvotes.date}
-                        // chosenDate={activity.dates.votes}
                         contact={activity.contact}
-                        // numberOfVoters={numberOfVoters}
                     />
                 })}
             </div>

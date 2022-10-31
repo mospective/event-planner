@@ -12,7 +12,6 @@ function slugify(string) {
         .replace(/^-+|-+$/g, '');
 }
 
-
 const ActivityCard = ({ occasion, activity }) => {
     const navigate = useNavigate();
 

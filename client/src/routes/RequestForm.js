@@ -23,9 +23,6 @@ export default function RequestForm () {
 
    },[]);
 
-//    console.log(eventId);
-//    console.log(reqData);
-
     return (
         <Fragment>
             <Header />

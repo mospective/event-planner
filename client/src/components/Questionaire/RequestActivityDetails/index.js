@@ -4,37 +4,16 @@ import "./index.css";
 
 const RequestActivityDetails = ({ selectedObject, setSelectedObject, setClientDate, setClientDateId }) => {
     const dateId = useRef();
-    console.log("rad", selectedObject);
     const { image } = selectedObject;
     const { description } = selectedObject;
     const { activity } = selectedObject;
     const { dates } = selectedObject;
 
-    // console.log(dates);
-
     const changeHandler = (e) => {
-        // e.preventDefault();
-        console.log("date" + e.target.value);
-        console.log("id");
-        console.log(e.currentTarget.dataset.id);
-
-        // setValue(!value)
         setSelectedObject({...selectedObject, date: e.target.value });
-        // console.log(selectedObject);
         setClientDate(e.target.value);
         setClientDateId(e.currentTarget.dataset.id)
-        // setSelectedObject((prev) => {
-        //     return {
-        //         prev,
-        //         date: e.target.value
-        //     }
-        // });
-
-        // based on date value return an array item with key
-        // copy the dateId + vote + 1
-
     };
-
 
     return (
         <div className="activity-grp">
