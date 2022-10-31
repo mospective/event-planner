@@ -12,7 +12,11 @@
     z-index: 10;
 }
 
-.logo-area h1 {
+.logo-area a {
+    text-decoration: none;
+}
+
+.logo-area a h1 {
     text-transform: uppercase;
     color: #ffffff;
 }

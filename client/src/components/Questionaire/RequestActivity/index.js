@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import "./index.css";
 
 const RequestActivity = ({ activities, setSelectedObject, setClientActivity, setClientActivityId }) => {
-    
+    const [selected, setSelected] = useState("");
+
     const btnSelectHandler = (e) => {
         e.preventDefault();
         // console.log("Select btn was click");
@@ -21,6 +22,14 @@ const RequestActivity = ({ activities, setSelectedObject, setClientActivity, set
         setClientActivityId(result.id);
     };
 
+    // Rethink the active state for the button on selection
+
+    const btnChangehandler  = (e) => {
+        setSelected(e.target.id)
+    };
+
+    // https://stackoverflow.com/questions/70570025/only-one-active-button-in-react
+
     // console.log("ra", selectedObject);
 
     return (
@@ -30,7 +39,8 @@ const RequestActivity = ({ activities, setSelectedObject, setClientActivity, set
             </div>
             <div className="client-card__grp">
 
-                {activities && activities.map(activity => {
+                {activities && activities.map((activity, id) => {
+                    let idString = id.toString();
                     return (
                         <div className="client-card" key={activity.id}>
                             <div className="client-card__img">
@@ -38,8 +48,8 @@ const RequestActivity = ({ activities, setSelectedObject, setClientActivity, set
                             </div>
                             <div className="client-card__text">
                                 <h2 className="client-card__title">{activity.activity}</h2>
-                                <div className="client-card__cta">
-                                    <button onClick={btnSelectHandler} data-card-id={activity.id}>Select</button>
+                                <div className={`client-card__cta`}>
+                                    <button className={selected === idString ? "selected" : ""} onClick={btnSelectHandler} onMouseDown={btnChangehandler} data-card-id={activity.id} id={id}>Select</button>
                                 </div>
                             </div>
                         </div>

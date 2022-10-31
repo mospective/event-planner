@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Dashboard from './routes/Dashboard';
 import Event from './routes/Event';
 import Request from './routes/Request';
+import RequestForm from './routes/RequestForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,8 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/event/:eventId" element={<Event />} />
-        <Route path="/request/:eventId" element={<Request />} />
+        <Route path="/request" element={<Request />} />
+        <Route path="/request/:eventId" element={<RequestForm />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

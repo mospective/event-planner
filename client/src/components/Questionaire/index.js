@@ -55,6 +55,7 @@ const Questionaire = ({ data }) => {
 
         setClientName("");
         setClientEmail("");
+        setPage(page + 1);
     };
 
     const activities = data.activities;
@@ -73,6 +74,8 @@ const Questionaire = ({ data }) => {
                     {/* The below "page" will need to be fully dynamic */}
                     {page === 2 && (<RequestActivityDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} setClientDate={setClientDate} setClientDateId={setClientDateId} />)}
                     {page === 3 && (<RequestClientDetails selectedObject={selectedObject} setSelectedObject={setSelectedObject} clientName={clientName} setClientName={setClientName} clientEmail={clientEmail} setClientEmail={setClientEmail} />)}
+                    {page === 4 && (<ThankyouPage />)}
+                    
                     <div className="form-navigation">
                         {page > 1 && (<button onClick={backHandler} >Back</button>)}
                         {/* <p>page: {page}</p> */}

@@ -1,17 +1,16 @@
 import React, { Fragment, useState, useEffect } from "react";
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Header from "../components/Header";
 import Main from "../components/Layout/Main";
-import EventsList from "../components/EventsList";
-// import Questionaire from "../components/Questionaire";
+import Questionaire from "../components/Questionaire";
 
-export default function Request () {
+export default function RequestForm () {
     const [reqData, setReqData] = useState([]);
 
-    // let { eventId } = useParams();
+    let { eventId } = useParams();
 
    useEffect(() => {
-    fetch(`/event`, {
+    fetch(`/event/${eventId}`, {
         method: "GET",
         headers: {
             'Accept': 'application/json',
@@ -24,16 +23,14 @@ export default function Request () {
 
    },[]);
 
+//    console.log(eventId);
 //    console.log(reqData);
 
     return (
         <Fragment>
             <Header />
             <Main>
-              <div className="heading-block">
-                  <h1>Upcoming events</h1>
-              </div>
-               <EventsList events={reqData} />
+               <Questionaire data={reqData} />
             </Main>
         </Fragment>
     );

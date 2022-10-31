@@ -45,6 +45,11 @@
     cursor: pointer;
 }
 
+.client-card__cta button.selected {
+    background-color: var(--light-teal);
+    color: #000000;
+}
+
 .message p {
     font-size: 20px;
     margin-bottom: 10px;

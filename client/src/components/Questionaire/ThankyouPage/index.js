@@ -3,7 +3,7 @@ import React from "react";
 const ThankyouPage = () => {
     return (
         <div>
-            <p>form 4</p>
+            <p>Thank you for your submission.</p>
         </div>
     )
 };
