@@ -61,7 +61,7 @@ const EventCard = ({ activity, description, location, activityImage, chosenDate,
                         </div>
                     </div>
                     <div className="dates">
-                        <p>Chosen date: {ISODateConverter(chosenDate)}</p>
+                        <p>Chosen date: {chosenDate !== 0 ?ISODateConverter(chosenDate) : "Date not voted"}</p>
                     </div>
                 </div>
                 <div className="event-card__content">

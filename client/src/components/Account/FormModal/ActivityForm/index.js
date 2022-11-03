@@ -156,7 +156,7 @@ const ActivityForm = ({ activityArray, setActivityArray }) => {
                     </div>
                 </div>
             </div>
-                <button onClick={addContactDetailsHandler}>{display ? "Show activity details" : "Add contact details"}</button>
+                <button className="contact-details" onClick={addContactDetailsHandler}>{display ? "Show activity details" : "Add contact details"}</button>
             <div className={`form-event__activity-contact ${display ? "show" : "hidden"}`} >
                 <input onChange={addContactName} value={contactName} type="text" required placeholder="Contact fullname"/>
                 <input onChange={addContactPosition} value={contactPosition} type="text" required placeholder="Contact position"/>
