@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { useAuth } from "../../../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
 import FormModal from "../FormModal";
 import ActivityCard from "../../ActivityCard";
 import "./index.css";
@@ -8,6 +10,18 @@ const DashboardLayout = () => {
     const [modal, setModal] = useState(false);
     const [activityArray, setActivityArray] = useState([]);
     const [apiData, setApiData] = useState([]);
+
+    let navigate = useNavigate();
+    const { currentUser, logout } = useAuth();
+
+    async function handleLogout() {
+        try {
+            await logout();
+            navigate("/");
+        } catch {
+            console.log("failed to logout")
+        }
+    }
 
     const openModal = () => {
         setModal(true)
@@ -47,6 +61,7 @@ const DashboardLayout = () => {
             <div className="heading-block">
                 <h2>Dashboard</h2>
                 <p>Welcome to the dashboard</p>
+                <button onClick={handleLogout}>Log out</button>
             </div>
             <FormModal modal={modal} setModal={setModal} closeModalHandler={closeModal} activityArray={activityArray} setActivityArray={setActivityArray} onAllEvents={getAllEvents}/>
 
