@@ -23,16 +23,6 @@ const getAllEvents = async (req, res) => {
 }
 
 const createEvent = async (req, res) => {
-    // const params = req.params;
-    // console.log(req.body);
-
-    // TODO code defensively - what if there is no body
-    // TODO add data to ensure you have your mandatory fields - what if there is no event name
-
-    //    if (isEmpty(req.body) || req.body === undefined) return false;
-    //      console.log("============================================================");
-    //      console.log(req.body);
-    //     console.log("============================================================");
 
     try {
 
@@ -48,7 +38,6 @@ const createEvent = async (req, res) => {
             }]
         });
 
-        // res.send("Event has been created.");
         res.send({
             message: "Event created",
             record: create
@@ -75,7 +64,6 @@ const getEvent = async (req, res) => {
 
 const updateEvent = async (req, res) => {
     const requestId = req.params.id;
-    // console.log(requestId);
     const event = await Event.findOne({ where: { id: requestId } });
 
     event.eventName = req.body.eventName;

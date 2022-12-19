@@ -1,5 +1,4 @@
 const Contact = require("../models/Contact");
-// const contactservice = require("../services/contactservice");
 
 const createContact = async (req, res) => {
     const contact = await Contact.create(req.body);
